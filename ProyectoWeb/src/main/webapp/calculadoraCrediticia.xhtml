@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:leaf="http://java.sun.com/jsf/composite/jsf2leaf"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="resources/template.xhtml">
+	<ui:define name="title">Unihogar - Calculadora Creditica</ui:define>
+	<ui:define name="content">
+		<p:panel header="Calculadora Crediticia" style="margin-bottom:20px">
+			<h:form>
+				<h:panelGrid columns="3">
+
+					<p:outputLabel value="Prestamo (pesos): " for="monto" />
+					<p:inputText id="monto" value="#{calculadoraCrediticiaBean.monto}"
+						required="true" requiredMessage="Campo monto requerido">
+						<f:validateLength minimum="7" maximum="11"></f:validateLength>
+					</p:inputText>
+					<p:message for="monto" />
+
+					<p:outputLabel value="Cuotas (mensuales): " for="duracion" />
+					<p:inputText id="duracion"
+						value="#{calculadoraCrediticiaBean.duracion}" required="true"
+						requiredMessage="Campo duración requerido" />
+					<p:message for="duracion" />
+
+					<p:outputLabel value="Tasa de interes (anual): " for="tasaInteres" />
+					<p:inputText id="tasaInteres"
+						value="#{calculadoraCrediticiaBean.tasaInteres}" required="true" />
+					<p:message for="tasaInteres" />
+
+				</h:panelGrid>
+
+				<p:commandButton update="@form"
+					action="#{calculadoraCrediticiaBean.calcular}" value="Calcular" />
+				<p:messages for="messagesBean" showDetail="true" />
+
+				<p:dataTable var="res" value="#{calculadoraCrediticiaBean.valores}">
+					<p:column headerText="Periodo">
+						<h:outputText value="#{res.periodo}" />
+					</p:column>
+
+					<p:column headerText="Cuota">
+						<h:outputText value="#{res.cuota}" />
+					</p:column>
+
+					<p:column headerText="Capital">
+						<h:outputText value="#{res.capital}" />
+					</p:column>
+
+					<p:column headerText="Interes">
+						<h:outputText value="#{res.interes}" />
+					</p:column>
+					
+					<p:column headerText="Saldo">
+						<h:outputText value="#{res.saldo}" />
+					</p:column>
+					
+				</p:dataTable>
+			</h:form>
+		</p:panel>
+
+	</ui:define>
+</ui:composition>
+</html>

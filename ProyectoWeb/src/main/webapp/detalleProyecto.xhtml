@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:leaf="http://java.sun.com/jsf/composite/jsf2leaf"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="resources/template.xhtml">
+	<ui:define name="title">Unihogar - Detalle proyecto</ui:define>
+
+	<ui:define name="content">
+
+		<h1>Resultado busqueda</h1>
+		<p:dataView var="proyecto" value="#{detalleProyecto.proyecto}"
+			paginator="true" gridIcon="pi pi-th-large" listIcon="pi pi-bars">
+			<p:dataViewGridItem>
+				<p:panel header="#{proyecto.nombre}" style="text-align:center">
+					<h:panelGrid columns="1" style="width:100%">
+						<p:graphicImage />
+
+						<h:outputText value="#{proyecto.descripcion}" />
+						<h:outputText value="#{proyecto.nombre}" />
+						<h:outputText value="#{proyecto.inmobiliaria.nombre}" />
+
+						<p:commandLink title="Ver detalle">
+							<h:outputText styleClass="ui-icon pi pi-search"
+								style="margin:0 auto;" />
+						</p:commandLink>
+					</h:panelGrid>
+				</p:panel>
+
+
+
+			</p:dataViewGridItem>
+			<p:dataViewListItem>
+				<h:panelGrid columns="3" style="width:100%"
+					columnClasses="logo,detail">
+					<p:graphicImage />
+
+					<p:outputPanel>
+						<h:panelGrid columns="2" cellpadding="5">
+							<h:outputText value="Nombre: " />
+							<h:outputText value="#{proyecto.nombre}"
+								style="font-weight: bold" />
+
+							<h:outputText value="Descripcion: " />
+							<h:outputText value="#{proyecto.descripcion}"
+								style="font-weight: bold" />
+
+							<h:outputText value="Ciudad: :" />
+							<h:outputText value="#{proyecto.miCiudad.nombre}"
+								style="font-weight: bold" />
+
+							<h:outputText value="Inmobiliaria: :" />
+							<h:outputText value="#{proyecto.inmobiliaria.nombre}"
+								style="font-weight: bold" />
+						</h:panelGrid>
+					</p:outputPanel>
+
+					<p:commandLink title="Ver detalle">
+						<h:outputText styleClass="ui-icon pi pi-search"
+							style="margin:0 auto;" />
+					</p:commandLink>
+				</h:panelGrid>
+			</p:dataViewListItem>
+		</p:dataView>
+
+		<h2>Comentarios</h2>
+		
+		<h:form rendered="#{!detalleProyecto.accionComentar}">
+			<p:commandButton value="Comentar"
+				oncomplete="PF('inicioSesion').show()" />
+
+		</h:form>
+
+		<p:dialog widgetVar="inicioSesion" modal="true" draggable="false"
+			showEffect="fade" header="Comentar">
+			<h:form>
+				<h:panelGrid columns="3">
+					<p:outputLabel value="Comentario:" for="comentarioA" />
+					<p:inputTextarea id="comentarioA" required="true"
+						value="#{detalleProyecto.comentarioA}" />
+					<p:message for="comentarioA" />
+
+				</h:panelGrid>
+				<br />
+				<p:commandButton value="Enviar comentario" update="@form"
+					action="#{detalleProyecto.irPrincipal}" />
+
+				<p:growl for="mensaje_sesion" showDetail="true" />
+			</h:form>
+		</p:dialog>
+
+		<h:form class="navigator-menu"
+			rendered="#{detalleProyecto.accionComentar}">
+			<p:outputLabel value="Nombre: " for="nombre_cliente" />
+			<p:inputText id="nombre_cliente" value="#{usuarioBean.nombreCliente}"
+				required="true" requiredMessage="El nombre es obligatorio" />
+			<p:message for="nombre_cliente" />
+
+		</h:form>
+
+		<p:dataView var="comentario" value="#{detalleProyecto.comentarios}"
+			paginator="true" gridIcon="pi pi-th-large" listIcon="pi pi-bars">
+			<p:dataViewGridItem>
+				<p:panel header="#{comentario.nombre}" style="text-align:center">
+					<h:panelGrid columns="1" style="width:100%">
+						<p:graphicImage />
+
+						<h:outputText value="#{comentario.comentario}" />
+
+						<p:commandLink title="Ver detalle">
+							<h:outputText styleClass="ui-icon pi pi-search"
+								style="margin:0 auto;" />
+						</p:commandLink>
+					</h:panelGrid>
+				</p:panel>
+
+
+
+			</p:dataViewGridItem>
+		</p:dataView>
+		<p>#{detalleProyecto.comentarioA}</p>
+		<p>#{detalleProyecto.comentarios}</p>
+		<h2>Servicios</h2>
+		<p>#{detalleProyecto.servicios}</p>
+
+		<p:dataView var="servicio" value="#{detalleProyecto.servicios}"
+			paginator="true" gridIcon="pi pi-th-large" listIcon="pi pi-bars">
+			<p:dataViewGridItem>
+				<p:panel header="#{servicios.nombre}" style="text-align:center">
+					<h:panelGrid columns="1" style="width:100%">
+						<p:graphicImage />
+
+						<h:outputText value="#{servicios.nombre}" />
+						<h:outputText value="#{servicios.codigo}" />
+						<h:outputText value="#{servicios.nombre}" />
+
+
+						<p:commandLink title="Ver detalle">
+							<h:outputText styleClass="ui-icon pi pi-search"
+								style="margin:0 auto;" />
+						</p:commandLink>
+					</h:panelGrid>
+				</p:panel>
+
+
+
+			</p:dataViewGridItem>
+		</p:dataView>
+		<p:button outcome="detalleProyecto" value="Añadir a favoritos"
+			action="#{detalleProyecto.agregarFavorito}" icon="pi pi-star"
+			style="margin-right:20px;">
+			<f:param name="productId" value="10" />
+		</p:button>
+	</ui:define>
+
+
+</ui:composition>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:leaf="http://java.sun.com/jsf/composite/jsf2leaf"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="/resources/template.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<p:panel header="Formulario para el registro de viviendas">
+				<h:panelGrid columns="3">
+
+					<h:outputLabel for="area_vivienda" value="Area :" />
+					<p:inputText required="true" id="area_vivienda"
+						value="#{registrarViviendaBean.area}"
+						requiredMessage="Campo obligatorio" />
+					<p:messages showDetail="true" for="area_vivienda" />
+
+					<h:outputLabel for="descripcion_vivienda" value="Descripcion: " />
+					<p:inputTextarea rows="6" cols="33" required="true"
+						id="descripcion_vivienda"
+						value="#{registrarViviendaBean.descripcion}"
+						requiredMessage="Campo obligatorio" />
+					<p:messages showDetail="true" for="descripcion" />
+
+
+					<h:outputLabel for="numero_banios" value="Baños :" />
+					<p:inputText required="true" id="numero_banios"
+						value="#{registrarViviendaBean.numBanos}"
+						requiredMessage="Campo obligatorio" />
+					<p:messages showDetail="true" for="numero_banios" />
+
+					<h:outputLabel for="numero_habitaciones" value="Habitacion :" />
+					<p:inputText required="true" id="numero_habitaciones"
+						value="#{registrarViviendaBean.numHabitaciones}"
+						requiredMessage="Campo obligatorio" />
+					<p:messages showDetail="true" for="numero_habitaciones" />
+
+					<h:outputLabel for="precio" value="Precio :" />
+					<p:inputText required="true" id="precio"
+						value="#{registrarViviendaBean.precio}"
+						requiredMessage="Campo obligatorio" />
+					<p:messages showDetail="true" for="precio" />
+
+					<p:outputLabel for="proyecto" value="Proyecto: " />
+					<p:selectOneMenu id="proyecto"
+						value="#{registrarViviendaBean.proyecto}" effect="fold"
+						editable="false" converter="#{proyectoConverter}" required="true">
+						<f:selectItem itemLabel="Seleccione proyectos"
+							noSelectionOption="true" />
+						<f:selectItems value="#{registrarViviendaBean.proyectos}"
+							var="proyecto" itemLabel="#{proyecto.nombre}" />
+					</p:selectOneMenu>
+					<p:messages showDetail="true" for="proyecto" />
+
+
+					<p:outputLabel for="tipo" value="Tipo : " />
+					<p:selectOneMenu id="tipo" value="#{registrarViviendaBean.tipo}"
+						effect="fold" editable="false" required="true">
+						<f:selectItem itemLabel="Seleccione un tipo"
+							noSelectionOption="true" />
+						<f:selectItem itemLabel="Apartamento" itemValue="0" />
+						<f:selectItem itemLabel="Casa" itemValue="1" />
+					</p:selectOneMenu>
+					<p:messages showDetail="true" for="tipo" />
+
+					<p:outputLabel for="plano" value="Suba foto de la vivienda:" />
+					<p:fileUpload id="plano" mode="advanced" skinSimple="true"
+						multiple="false" listener="#{registrarViviendaBean.subirImagen}"
+						allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+					<p:messages showDetail="true" for="plano" />
+
+					<p:commandButton update="@form"
+						action="#{registrarViviendaBean.registrarVivienda()}"
+						value="Registrar" />
+
+				</h:panelGrid>
+			</p:panel>
+
+			<p:growl showDetail="true" for="mensajes_bean" />
+
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+</html>

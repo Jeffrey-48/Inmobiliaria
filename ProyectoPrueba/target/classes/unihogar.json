@@ -1,0 +1,246 @@
+{
+	"ciudad": [
+		{
+			"CODIGO_CIUDAD": 1,
+			"NOMBRE": "Armenia"
+		},
+		{
+			"CODIGO_CIUDAD": 2,
+			"NOMBRE": "Pereira"
+		},
+		{
+			"CODIGO_CIUDAD": 3,
+			"NOMBRE": "Ibague"
+		}
+	],
+	"inmobiliaria": [
+		{
+			"CODIGO": 1,
+			"DIRECCION": "MZ F 10",
+			"EMAIL": "GJ@GT",
+			"NOMBRE": "VECINDAD",
+			"PASSWORD": "123"
+		},
+		{
+			"CODIGO": 2,
+			"DIRECCION": "Avenida bolivar",
+			"EMAIL": "GJ@GT5",
+			"NOMBRE": "ELIECER GAITAN",
+			"PASSWORD": "331"
+		},
+		{
+			"CODIGO": 3,
+			"DIRECCION": "Calle 13",
+			"EMAIL": "GJ@PPT",
+			"NOMBRE": "LA PAZ",
+			"PASSWORD": "456"
+		}
+	],
+	"administrador": [
+		{
+			"CODIGO": 1,
+			"EMAIL": " jeffrey@1",
+			"NOMBRE": "JEFFREY",
+			"PASSWORD": "123"
+		},
+		{
+			"CODIGO": 2,
+			"EMAIL": " j@KK",
+			"NOMBRE": "juan",
+			"PASSWORD": "13"
+		},
+		{
+			"CODIGO": 3,
+			"EMAIL": " ddd@1",
+			"NOMBRE": "julian",
+			"PASSWORD": "173"
+		}
+	],
+	"comentario": [
+		{
+			"CODIGO": 1,
+			"COMENTARIO": "Esta bueno",
+			"FECHA": "2020-03-22",
+			"COMENTARIOCLIENTE_CODIGO": 1,
+			"COMENTARIOPROYECTO_CODIGO": 1
+		},
+		{
+			"CODIGO": 2,
+			"COMENTARIO": "Esta bueno",
+			"FECHA": "2020-03-20",
+			"COMENTARIOCLIENTE_CODIGO": 2,
+			"COMENTARIOPROYECTO_CODIGO": 2
+		},
+		{
+			"CODIGO": 3,
+			"COMENTARIO": "Esta bueno",
+			"FECHA": "2020-03-13",
+			"COMENTARIOCLIENTE_CODIGO": 3,
+			"COMENTARIOPROYECTO_CODIGO": 3
+		}
+	],
+	"vivienda": [
+		{
+			"CODIGO": 1,
+			"AREA": 100,
+			"DESCRIPCION": "campestre",
+			"NUM_BANOS": 2,
+			"NUM_HABITACIONES": 4,
+			"PRECIO": 50000000,
+			"TIPO": 0,
+			"URL_IMAGEN": "http//gg.jpg",
+			"MIPROYECTO_CODIGO": 1
+		},
+		{
+			"CODIGO": 2,
+			"AREA": 95,
+			"DESCRIPCION": "campestre",
+			"NUM_BANOS": 3,
+			"NUM_HABITACIONES": 3,
+			"PRECIO": 4000000,
+			"TIPO": 1,
+			"URL_IMAGEN": "http//CASA.jpg",
+			"MIPROYECTO_CODIGO": 2
+		},
+		{
+			"CODIGO": 3,
+			"AREA": 98,
+			"DESCRIPCION": "apartamento grande",
+			"NUM_BANOS": 3,
+			"NUM_HABITACIONES": 5,
+			"PRECIO": 752000000,
+			"TIPO": 1,
+			"URL_IMAGEN": "http//sitep.jpg",
+			"MIPROYECTO_CODIGO": 3
+		}
+	],
+	"cliente": [
+		{
+			"CODIGO": 1,
+			"EMAIL": "cliente1@gmail",
+			"FECHA_NACIMIENTO": "2020-03-22",
+			"NOMBRE": "cliente1",
+			"NOMBRE_COMPLETO": "cliente1",
+			"PASSWORD": "123",
+			"NUM_TELEFONO": "3135462312"
+		},
+		{
+			"CODIGO": 2,
+			"EMAIL": "cliente2@gmail",
+			"FECHA_NACIMIENTO": "2020-03-20",
+			"NOMBRE": "cliente2",
+			"NOMBRE_COMPLETO": "cliente2",
+			"PASSWORD": "123",
+			"NUM_TELEFONO": "3125452342"
+		},
+		{
+			"CODIGO": 3,
+			"EMAIL": "cliente3@gmail",
+			"FECHA_NACIMIENTO": "2020-03-13",
+			"NOMBRE": "cliente3",
+			"NOMBRE_COMPLETO": "cliente3",
+			"PASSWORD": "123",
+			"NUM_TELEFONO": "3158467896"
+		}
+	],
+	"servicio": [
+		{
+			"CODIGO_SERVICIO": 1,
+			"NOMBRE": "servicio1"
+		},
+		{
+			"CODIGO_SERVICIO": 2,
+			"NOMBRE": "servicio2"
+		},
+		{
+			"CODIGO_SERVICIO": 3,
+			"NOMBRE": "servicio3"
+		}
+	],
+	"usuario": [
+		{
+			"CODIGO": 1,
+			"EMAIL": "usuario@gmail",
+			"NOMBRE": "usuario1",
+			"PASSWORD": "123"
+		},
+		{
+			"CODIGO": 2,
+			"EMAIL": "usuario1@gmail",
+			"NOMBRE": "usuario2",
+			"PASSWORD": "123"
+		},
+		{
+			"CODIGO": 3,
+			"EMAIL": "usuario3@gmail",
+			"NOMBRE": "usuario3",
+			"PASSWORD": "123"
+		}
+	],
+	"proyecto": [
+		{
+			"CODIGO": 1,
+			"DESCRIPCION": " TODO LO RICO",
+			"NOMBRE": "TORRES DEL RIO",
+			"UBICACION_LATITUD": "3.4558",
+			"UBICACION_LONGITUD": "4.8887",
+			"INMOBILIARIA_CODIGO": 1,
+			"MICIUDAD_CODIGO_CIUDAD": 1
+		},
+		{
+			"CODIGO": 2,
+			"DESCRIPCION": "LAS MEJORES",
+			"NOMBRE": "TORRES DEL MAR",
+			"UBICACION_LATITUD": "3.455558",
+			"UBICACION_LONGITUD": "4.87788",
+			"INMOBILIARIA_CODIGO": 2,
+			"MICIUDAD_CODIGO_CIUDAD": 2
+		},
+		{
+			"CODIGO": 3,
+			"DESCRIPCION": "LAS MEJORES PAI",
+			"NOMBRE": "TORRES DEL LAGO",
+			"UBICACION_LATITUD": "3.455558",
+			"UBICACION_LONGITUD": "4.877887",
+			"INMOBILIARIA_CODIGO": 3,
+			"MICIUDAD_CODIGO_CIUDAD": 3
+		}
+	],
+	"calificacion": [
+		{
+			"CALIFICACION": 1,
+			"CLIENTECALIFICACION_CODIGO": 1,
+			"PROYECTOCALIFICACION_CODIGO": 1
+		},
+		{
+			"CALIFICACION": 2,
+			"CLIENTECALIFICACION_CODIGO": 2,
+			"PROYECTOCALIFICACION_CODIGO": 2
+		},
+		{
+			"CALIFICACION": 3,
+			"CLIENTECALIFICACION_CODIGO": 3,
+			"PROYECTOCALIFICACION_CODIGO": 3
+		}
+	],
+	"contacto": [
+		{
+			"ASUNTO": "correo",
+			"CUERPOMENSAJE": "asunto",
+			"CLIENTECONTACTO_CODIGO": 1,
+			"PROYECTOCONTACTO_CODIGO": 1
+		},
+		{
+			"ASUNTO": "correo",
+			"CUERPOMENSAJE": "asunto",
+			"CLIENTECONTACTO_CODIGO": 2,
+			"PROYECTOCONTACTO_CODIGO": 2
+		},
+		{
+			"ASUNTO": "correo",
+			"CUERPOMENSAJE": "asunto",
+			"CLIENTECONTACTO_CODIGO": 3,
+			"PROYECTOCONTACTO_CODIGO": 3
+		}
+	]
+}

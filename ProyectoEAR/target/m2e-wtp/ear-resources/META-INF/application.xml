@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_7.xsd" version="7">
+  <description>Proyecto de los moduos del aplicativo en el servidor de aplicaciones</description>
+  <display-name>ProyectoEAR</display-name>
+  <module id="EJB_g.uniquindio.edu.co.ProyectoNegocio">
+    <ejb>ProyectoNegocio.jar</ejb>
+  </module>
+  <module id="WAR_g.uniquindio.edu.co.ProyectoWeb">
+    <web>
+      <web-uri>ProyectoWeb.war</web-uri>
+      <context-root>/ProyectoWeb</context-root>
+    </web>
+  </module>
+  <library-directory>lib</library-directory>
+</application>

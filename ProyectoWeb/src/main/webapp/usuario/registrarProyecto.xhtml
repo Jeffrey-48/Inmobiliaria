@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:leaf="http://java.sun.com/jsf/composite/jsf2leaf"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="/resources/template.xhtml">
+	<ui:define name="title">UniHogar - Registrar proyecto</ui:define>
+	<ui:define name="content">
+		<div class="ui-g">
+			<div class="ui-g-1"></div>
+			<div class="ui-g-10">
+				<p:panel header="Formulario para el registro de Proyectos"
+					style="margin-bottom:20px">
+					<div class="ui-g">
+						<div class="ui-g-12 ui-lg-5">
+							<leaf:mapAdvanced id="mapa" map="#{registrarProyecto.mapa}" />
+						</div>
+						<div class="ui-g-12 ui-lg-7">
+							<h:form id="form_registrar_proyecto">
+								<p:growl for="mensajes_regproyecto" showDetail="true" />
+								<h:panelGrid columns="2">
+
+									<p:outputLabel value="Nombre: " for="nombre_proyecto" />
+									<p:inputText id="nombre_proyecto" required="true"
+										style="width:280px"
+										value="#{registrarProyecto.nombreProyecto}" />
+
+
+									<p:outputLabel value="Descripción " for="descripcion_proyecto" />
+									<p:inputTextarea id="descripcion_proyecto" rows="5"
+										style="width:280px"
+										value="#{registrarProyecto.descripcionProyecto}" />
+
+
+									<p:outputLabel value="Ciudad " for="ciudad_proyecto" />
+									<p:selectOneMenu id="ciudad_proyecto"
+										value="#{registrarProyecto.ciudadProyecto}"
+										converter="#{ciudadConverter}" required="true"
+										style="width:280px">
+										<f:selectItem itemLabel="Seleccionar" noSelectionOption="true" />
+										<f:selectItems value="#{registrarProyecto.ciudades}"
+											var="ciudad" itemLabel="#{ciudad.nombre}" />
+									</p:selectOneMenu>
+
+
+									<p:outputLabel value="Imagenes: " for="imagenes_proyecto" />
+									<p:fileUpload id="imagenes_proyecto"
+										listener="#{registrarProyecto.subirArchivos}" multiple="true"
+										mode="advanced" required="true"
+										allowTypes="/(\.|\/)(gif|jpe?g|png)$/">
+									</p:fileUpload>
+
+
+									<p:outputLabel value="Servicios:  " for="servicios_proyecto" />
+									<p:selectManyCheckbox id="servicios_proyecto"
+										value="#{registrarProyecto.servicioSeleccionados}"
+										layout="grid" columns="3" converter="#{servicioConverter}">
+										<f:selectItems value="#{registrarProyecto.servicios}"
+											var="servicio" itemLabel="#{servicio.nombre}" />
+									</p:selectManyCheckbox>
+
+								</h:panelGrid>
+								<br />
+
+								<p:commandButton update="@form" value="Registrar Proyecto"
+									action="#{registrarProyecto.registrarProyecto}" />
+
+							</h:form>
+						</div>
+					</div>
+				</p:panel>
+				<h:form>
+					<p:remoteCommand name="funcionRemota"
+						action="#{registrarProyecto.crearMarker}" update="mensaje_pos" />
+					<p:growl id="mensaje_pos" for="mensaje_pos" showDetail="true" />
+				</h:form>
+			</div>
+			<div class="ui-g-1"></div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

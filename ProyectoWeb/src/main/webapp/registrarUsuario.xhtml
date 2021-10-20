@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="resources/template.xhtml">
+	<ui:define name="title">UniHogar - Registrar cliente</ui:define>
+	<ui:define name="content">
+		<div class="ui-g">
+			<div class="ui-g-1"></div>
+			<div class="ui-g-10">
+				<p:panel header="Formulario para el registro de clientes"
+					style="margin-bottom:20px">
+
+					<h:form>
+						<p:growl for="mensajes_bean" showDetail="true" />
+						<h:panelGrid columns="3">
+
+							<p:outputLabel value="Codigo: " for="codigo_cliente" />
+							<p:inputText id="codigo_cliente"
+								value="#{usuarioBean.codigoCliente}" required="true"
+								requiredMessage="El codigo es obligatorio"
+								validatorMessage="El codigo del cliente debe tener entre 7 y 10 caracteres">
+								<f:validateLength minimum="7" maximum="10" />
+								<p:ajax update="m_codigo_cliente" event="keyup" />
+							</p:inputText>
+							<p:message id="m_codigo_cliente" for="codigo_cliente" />
+
+							<p:outputLabel value="Nombre: " for="nombre_cliente" />
+							<p:inputText id="nombre_cliente"
+								value="#{usuarioBean.nombreCliente}" required="true"
+								requiredMessage="El nombre es obligatorio" />
+							<p:message for="nombre_cliente" />
+
+							<p:outputLabel value="Fecha nacimiento: " for="fecha_Nacimiento" />
+							<p:calendar id="fecha_Nacimiento"
+								value="#{usuarioBean.fechaDeNacimiento}" navigator="true"
+								yearRange="c-80:c+1" />
+							<p:message for="fecha_Nacimiento" />
+
+							<p:outputLabel value="Email: " for="email_cliente" />
+							<p:inputText id="email_cliente"
+								value="#{usuarioBean.emailCliente}" required="true"
+								requiredMessage="El email es obligatorio" />
+							<p:message for="email_cliente" />
+
+							<p:outputLabel value="Password: " for="password_cliente" />
+							<p:password id="password_cliente"
+								value="#{usuarioBean.passwordCliente}" feedback="true"
+								inline="true" required="true"
+								requiredMessage="La contraseña es obligatorio" />
+							<p:message for="password_cliente" />
+
+							<p:outputLabel value="Numero telefono: " for="tel_cliente" />
+							<p:inputText id="tel_cliente"
+								value="#{usuarioBean.telefonoCliente}" />
+							<p:message for="tel_cliente" />
+						</h:panelGrid>
+						<br />
+						<p:commandButton value="Registrarme"
+							action="#{usuarioBean.registrarCliente}" />
+
+					</h:form>
+				</p:panel>
+			</div>
+			<div class="ui-g-1"></div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

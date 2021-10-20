@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyecto.controlador.CrearInmobiliaria">
+   <children>
+      <Label layoutX="124.0" layoutY="79.0" text="Codigo" />
+      <Label layoutX="124.0" layoutY="126.0" text="Direccion" />
+      <Label layoutX="124.0" layoutY="169.0" text="Email" />
+      <Label layoutX="124.0" layoutY="215.0" text="Nombre" />
+      <Label layoutX="124.0" layoutY="265.0" text="Password" />
+      <TextField fx:id="codigoInmobiliaria" layoutX="183.0" layoutY="75.0" />
+      <TextField fx:id="direccionInmobiliaria" layoutX="183.0" layoutY="122.0" />
+      <TextField fx:id="emailInmobiliaria" layoutX="183.0" layoutY="165.0" />
+      <TextField fx:id="nombreInmobiliaria" layoutX="183.0" layoutY="211.0" />
+      <TextField fx:id="passwordInmobiliaria" layoutX="183.0" layoutY="261.0" />
+      <Button layoutX="692.0" layoutY="340.0" mnemonicParsing="false" onAction="#agregarInmobiliaria" text="Agregar" />
+      <Button layoutX="59.0" layoutY="340.0" mnemonicParsing="false" onAction="#atras" text="Atras" />
+      <Label layoutX="183.0" layoutY="27.0" text="Crear Inmobiliaria">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nombreProyecto" layoutX="533.0" layoutY="75.0" />
+      <TextField fx:id="codigoProyecto" layoutX="533.0" layoutY="122.0" />
+      <Label layoutX="561.0" layoutY="27.0" prefHeight="18.0" prefWidth="80.0" text="Asesor">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="461.0" layoutY="79.0" text="Nombre" />
+      <Label layoutX="463.0" layoutY="126.0" text="Cogido" />
+      <Label layoutX="564.0" layoutY="187.0" text="Telefonos">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="telefonosArea" layoutX="515.0" layoutY="224.0" prefHeight="65.0" prefWidth="172.0" />
+   </children>
+</AnchorPane>

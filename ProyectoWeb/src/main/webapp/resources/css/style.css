@@ -1,0 +1,9 @@
+.div-inline{
+	display: inline-block !important;
+	margin-right: 10px;
+}
+
+#footer{
+	background: #f4f4f4;
+	border-top: 1px solid #c8c8c8;
+}
